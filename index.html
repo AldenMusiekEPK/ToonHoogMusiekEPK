@@ -1,0 +1,1308 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TOONHOOG | Afrikaans Rock Band | Electronic Press Kit</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root { --brand-red: #dc2626; }
+
+    .font-band { font-family: 'Oswald', sans-serif; }
+    .font-body { font-family: 'Montserrat', sans-serif; }
+    .font-impact { font-family: 'Oswald', sans-serif; }
+
+    html { scroll-behavior: smooth; }
+
+    /* ✅ Reusable section background system */
+    .section-bg {
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+    }
+
+    .section-bg::before,
+    .section-bg::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 120px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .section-bg::before {
+      top: 0;
+      background: linear-gradient(to bottom, black, transparent);
+    }
+
+    .section-bg::after {
+      bottom: 0;
+      background: linear-gradient(to top, black, transparent);
+    }
+
+    .section-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, black, rgba(0,0,0,0.6), black);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .section-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Hero animations */
+    @keyframes heroFadeUp {
+      0% { opacity: 0; transform: translateY(18px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes heroFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .hero-logo {
+      animation: heroFadeUp 1.1s ease-out forwards, heroFloat 4.5s ease-in-out 1.2s infinite;
+    }
+
+    /* ✅ Lightbox buttons */
+    .lightbox-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(220, 38, 38, 0.25);
+      border: 1px solid rgba(220, 38, 38, 0.5);
+      backdrop-filter: blur(10px);
+      transition: 0.15s ease;
+    }
+
+    .lightbox-btn:hover {
+      background: rgba(220, 38, 38, 0.9);
+      color: black;
+    }
+
+    /* ✅ Better paragraph justification */
+    .member-bio {
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
+
+    .member-bio-right {
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
+  </style>
+</head>
+
+<body class="bg-black text-white font-body">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur border-b border-red-600/30">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+      <!-- Logo -->
+      <a href="#" class="font-band text-2xl tracking-widest text-red-600">
+        TOONHOOG
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="hidden md:flex gap-8 text-sm uppercase tracking-widest">
+        <a href="#about" class="hover:text-red-600 transition">About</a>
+        <a href="#music" class="hover:text-red-600 transition">Music</a>
+        <a href="#members" class="hover:text-red-600 transition">Band</a>
+        <a href="#live" class="hover:text-red-600 transition">Live</a>
+        <a href="#gallery" class="hover:text-red-600 transition">Gallery</a>
+        <a href="#contact" class="hover:text-red-600 transition">Contact</a>
+      </div>
+
+      <!-- Mobile Button -->
+      <button
+        class="md:hidden border border-red-600/40 px-3 py-2 rounded-lg text-sm uppercase tracking-widest hover:bg-red-600 hover:text-black transition"
+        onclick="toggleMenu()"
+      >
+        Menu
+      </button>
+
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="md:hidden hidden px-6 pb-4">
+      <div class="flex flex-col gap-3 text-sm uppercase tracking-widest border-t border-red-600/20 pt-4">
+        <a href="#about" onclick="closeMenu()" class="hover:text-red-600 transition">About</a>
+        <a href="#music" onclick="closeMenu()" class="hover:text-red-600 transition">Music</a>
+        <a href="#members" onclick="closeMenu()" class="hover:text-red-600 transition">Band</a>
+        <a href="#live" onclick="closeMenu()" class="hover:text-red-600 transition">Live</a>
+        <a href="#gallery" onclick="closeMenu()" class="hover:text-red-600 transition">Gallery</a>
+        <a href="#contact" onclick="closeMenu()" class="hover:text-red-600 transition">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section
+    class="section-bg min-h-screen flex flex-col items-center justify-center text-center px-6 pt-24"
+    style="background-image: url('./assets/images/hero-bg.jpg');"
+  >
+    <div class="section-overlay"></div>
+
+    <div class="section-content">
+      <div class="flex justify-center mb-6">
+        <img
+          src="./assets/images/toonhoog-logo.svg"
+          alt="TOONHOOG Logo"
+          class="hero-logo w-[90%] max-w-[750px] h-auto object-contain"
+        />
+      </div>
+
+      <p class="uppercase tracking-widest text-gray-400 mb-4">
+        Afrikaans Rock Band
+      </p>
+
+      <p class="text-sm text-gray-500">
+        South Africa
+      </p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section
+    id="about"
+    class="section-bg py-24 px-6"
+    style="background-image: url('./assets/images/about-bg.jpg');"
+  >
+    <div class="section-overlay"></div>
+
+    <div class="section-content max-w-5xl mx-auto">
+      <div class="flex items-center gap-4 mb-12">
+        <h2 class="font-impact text-4xl md:text-5xl text-white">ABOUT</h2>
+        <div class="flex-1 h-1 bg-[--brand-red]"></div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="md:col-span-2">
+          <p class="text-gray-300 text-lg leading-relaxed mb-6">
+            <strong class="text-white">TOONHOOG</strong> is an Afrikaans Alternative Rock band from Pretoria, South Africa, formed in 2023.
+          </p>
+
+          <p class="text-gray-300 text-lg leading-relaxed mb-6">
+            Inspired by artists such as Fokofpolisiekar, Spoegwolf, Francois van Coke and Koos Kombuis, TOONHOOG draws from the raw energy and rebellious spirit of Afrikaans rock while carving out a sound distinctly their own.
+          </p>
+
+          <p class="text-gray-300 text-lg leading-relaxed">
+            Their music reflects the complexities of modern life through unapologetically bold songwriting, honest lyrics, and high-energy performances that resonate with a new generation.
+          </p>
+        </div>
+
+        <div class="space-y-6">
+          <div class="border-l-4 border-[--brand-red] pl-4">
+            <span class="text-gray-500 text-sm uppercase tracking-wider">Genre</span>
+            <p class="text-white font-semibold">Afrikaans Alternative Rock</p>
+          </div>
+
+          <div class="border-l-4 border-[--brand-red] pl-4">
+            <span class="text-gray-500 text-sm uppercase tracking-wider">Formed</span>
+            <p class="text-white font-semibold">2023</p>
+          </div>
+
+          <div class="border-l-4 border-[--brand-red] pl-4">
+            <span class="text-gray-500 text-sm uppercase tracking-wider">Based In</span>
+            <p class="text-white font-semibold">Pretoria, South Africa</p>
+          </div>
+
+          <div class="border-l-4 border-[--brand-red] pl-4">
+            <span class="text-gray-500 text-sm uppercase tracking-wider">Influences</span>
+            <p class="text-white font-semibold">
+              Fokofpolisiekar, Spoegwolf, Francois van Coke, Koos Kombuis
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MUSIC -->
+  <section
+    id="music"
+    class="section-bg py-24 px-6"
+    style="background-image: url('./assets/images/music-bg.jpg');"
+  >
+    <div class="section-overlay"></div>
+
+    <div class="section-content max-w-4xl mx-auto">
+
+      <div class="flex items-center gap-4 mb-12">
+        <div class="flex-1 h-1 bg-[--brand-red]"></div>
+        <h2 class="font-impact text-4xl md:text-5xl text-white">MUSIC</h2>
+        <div class="flex-1 h-1 bg-[--brand-red]"></div>
+      </div>
+
+      <!-- Latest Release -->
+      <div class="bg-neutral-900/80 backdrop-blur border border-[--brand-red]/40 rounded-2xl overflow-hidden mb-12 shadow-lg">
+        <div class="p-2 bg-[--brand-red]">
+          <span class="text-xs uppercase tracking-widest font-semibold text-black">
+            Latest Release
+          </span>
+        </div>
+
+        <div class="p-8 md:p-12">
+          <div class="flex flex-col md:flex-row gap-8 items-center">
+
+            <!-- ARTWORK -->
+            <div
+              class="relative w-48 h-48 rounded-2xl overflow-hidden border-2 border-[--brand-red]/40 cursor-pointer group shadow-md transition hover:scale-[1.02]"
+              onclick="toggleFrancois()"
+            >
+              <img
+                src="./assets/images/francois-se-skuld-art.jpg"
+                alt="Francois Se Skuld artwork"
+                class="w-full h-full object-cover"
+              />
+
+              <div
+                id="francois-icon"
+                class="absolute inset-0 flex items-center justify-center bg-black/40 text-white text-4xl opacity-0 group-hover:opacity-100 transition"
+              >
+                ▶
+              </div>
+            </div>
+
+            <audio id="francois-audio" preload="metadata">
+              <source src="./assets/audio/francois-se-skuld.mp3" type="audio/mpeg" />
+            </audio>
+
+            <div class="text-center md:text-left flex-1">
+              <span class="text-[--brand-red] text-sm uppercase tracking-wider font-semibold">
+                Single
+              </span>
+
+              <h3 class="font-impact text-4xl md:text-5xl text-white mt-2 mb-4">
+                Francois Se Skuld
+              </h3>
+
+              <p class="text-gray-400 text-lg mb-6">
+                TOONHOOG pulls no punches on “Francois Se Skuld”. Loud guitars, an aggressive hook,
+                and pure Afrikaans rock attitude. FSS mixes chaos, blame, and breaking free into a powerhouse
+                tribute track that hits hard from start to finish.
+              </p>
+
+              <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                <span class="px-4 py-2 bg-[--brand-red]/20 text-[--brand-red] rounded-full text-sm font-medium">
+                  Out Now
+                </span>
+                <span class="px-4 py-2 bg-neutral-800 text-gray-400 rounded-full text-sm">
+                  2025
+                </span>
+              </div>
+
+              <div class="mt-6 w-full max-w-xl">
+                <div class="flex items-center gap-4">
+                  <button
+                    onclick="toggleFrancois()"
+                    class="px-4 py-2 rounded-full border border-[--brand-red]/40 bg-[--brand-red]/10 text-[--brand-red] hover:bg-[--brand-red] hover:text-black transition"
+                    id="francois-btn"
+                  >
+                    ▶
+                  </button>
+
+                  <div class="flex-1">
+                    <input
+                      id="francois-progress"
+                      type="range"
+                      min="0"
+                      max="100"
+                      value="0"
+                      class="w-full"
+                      oninput="seekAudio('francois-audio', this.value)"
+                    />
+                    <div class="flex justify-between text-xs text-gray-500 mt-1">
+                      <span id="francois-current">0:00</span>
+                      <span id="francois-duration">0:00</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- First Release -->
+      <div class="bg-neutral-900/80 backdrop-blur border border-[--brand-red]/40 rounded-2xl overflow-hidden mb-12 shadow-lg">
+        <div class="p-2 bg-[--brand-red]">
+          <span class="text-xs uppercase tracking-widest font-semibold text-black">
+            First Release
+          </span>
+        </div>
+
+        <div class="p-8 md:p-12">
+          <div class="flex flex-col md:flex-row gap-8 items-center">
+
+            <div
+              class="relative w-48 h-48 rounded-2xl overflow-hidden border-2 border-[--brand-red]/40 cursor-pointer group shadow-md transition hover:scale-[1.02]"
+              onclick="toggleJyKen()"
+            >
+              <img
+                src="./assets/images/jy-ken-my-nie-art.jpg"
+                alt="Jy Ken My Nie artwork"
+                class="w-full h-full object-cover"
+              />
+
+              <div
+                id="jyken-icon"
+                class="absolute inset-0 flex items-center justify-center bg-black/40 text-white text-4xl opacity-0 group-hover:opacity-100 transition"
+              >
+                ▶
+              </div>
+            </div>
+
+            <audio id="jyken-audio" preload="metadata">
+              <source src="./assets/audio/jy-ken-my-nie.mp3" type="audio/mpeg" />
+            </audio>
+
+            <div class="text-center md:text-left flex-1">
+              <span class="text-[--brand-red] text-sm uppercase tracking-wider font-semibold">
+                Single
+              </span>
+
+              <h3 class="font-impact text-4xl md:text-5xl text-white mt-2 mb-4">
+                Jy Ken My Nie
+              </h3>
+
+              <p class="text-gray-400 text-lg mb-6">
+                A grungy debut for anyone who has ever been misunderstood or underestimated.
+                “Jy Ken My Nie” blends emotion with aggression, introducing TOONHOOG’s loud, honest,
+                no-filter sound that is straight to the point and impossible to ignore.
+              </p>
+
+              <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                <span class="px-4 py-2 bg-neutral-800 text-gray-400 rounded-full text-sm">
+                  2024
+                </span>
+              </div>
+
+              <div class="mt-6 w-full max-w-xl">
+                <div class="flex items-center gap-4">
+                  <button
+                    onclick="toggleJyKen()"
+                    class="px-4 py-2 rounded-full border border-[--brand-red]/40 bg-[--brand-red]/10 text-[--brand-red] hover:bg-[--brand-red] hover:text-black transition"
+                    id="jyken-btn"
+                  >
+                    ▶
+                  </button>
+
+                  <div class="flex-1">
+                    <input
+                      id="jyken-progress"
+                      type="range"
+                      min="0"
+                      max="100"
+                      value="0"
+                      class="w-full"
+                      oninput="seekAudio('jyken-audio', this.value)"
+                    />
+                    <div class="flex justify-between text-xs text-gray-500 mt-1">
+                      <span id="jyken-current">0:00</span>
+                      <span id="jyken-duration">0:00</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- In Production -->
+      <div class="bg-neutral-900/80 backdrop-blur border border-neutral-800 rounded-lg p-8">
+        <h4 class="font-impact text-2xl text-white mb-6">IN PRODUCTION</h4>
+
+        <div class="space-y-6">
+
+          <div class="flex items-start gap-4 pb-6 border-b border-neutral-800">
+            <div class="w-12 h-12 rounded-full bg-[--brand-red]/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-[--brand-red] font-impact text-xl">01</span>
+            </div>
+            <div>
+              <h5 class="text-white font-semibold text-lg mb-2">Terapie</h5>
+              <span class="inline-block text-[--brand-red] text-sm uppercase tracking-wider">
+                Recording In Progress
+              </span>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 pb-6 border-b border-neutral-800">
+            <div class="w-12 h-12 rounded-full bg-[--brand-red]/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-[--brand-red] font-impact text-xl">02</span>
+            </div>
+            <div>
+              <h5 class="text-white font-semibold text-lg mb-2">Onthou</h5>
+              <span class="inline-block text-[--brand-red] text-sm uppercase tracking-wider">
+                Recording In Progress
+              </span>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 pb-6 border-b border-neutral-800">
+            <div class="w-12 h-12 rounded-full bg-[--brand-red]/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-[--brand-red] font-impact text-xl">03</span>
+            </div>
+            <div>
+              <h5 class="text-white font-semibold text-lg mb-2">Darling Straat</h5>
+              <span class="inline-block text-[--brand-red] text-sm uppercase tracking-wider">
+                Recording In Progress
+              </span>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 pb-6 border-b border-neutral-800">
+            <div class="w-12 h-12 rounded-full bg-[--brand-red]/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-[--brand-red] font-impact text-xl">04</span>
+            </div>
+            <div>
+              <h5 class="text-white font-semibold text-lg mb-2">Filosofie</h5>
+              <span class="inline-block text-[--brand-red] text-sm uppercase tracking-wider">
+                Recording In Progress
+              </span>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 pb-6 border-b border-neutral-800">
+            <div class="w-12 h-12 rounded-full bg-[--brand-red]/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-[--brand-red] font-impact text-xl">05</span>
+            </div>
+            <div>
+              <h5 class="text-white font-semibold text-lg mb-2">Adrenalien</h5>
+              <span class="inline-block text-[--brand-red] text-sm uppercase tracking-wider">
+                Recording In Progress
+              </span>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 pb-6 border-b border-neutral-800">
+            <div class="w-12 h-12 rounded-full bg-[--brand-red]/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-[--brand-red] font-impact text-xl">06</span>
+            </div>
+            <div>
+              <h5 class="text-white font-semibold text-lg mb-2">Helder Lig</h5>
+              <span class="inline-block text-[--brand-red] text-sm uppercase tracking-wider">
+                Recording In Progress
+              </span>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-full bg-[--brand-red]/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-[--brand-red] font-impact text-xl">07</span>
+            </div>
+            <div>
+              <h5 class="text-white font-semibold text-lg mb-2">Verlore In Die Moot</h5>
+              <span class="inline-block text-[--brand-red] text-sm uppercase tracking-wider">
+                Recording In Progress
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BAND MEMBERS -->
+  <section
+    id="members"
+    class="section-bg py-24 px-6"
+    style="background-image: url('./assets/images/members-bg.jpg');"
+  >
+    <div class="section-overlay"></div>
+
+    <div class="section-content max-w-5xl mx-auto">
+      <div class="flex items-center gap-4 mb-12">
+        <h2 class="font-impact text-4xl md:text-5xl text-white">
+          BAND MEMBERS
+        </h2>
+        <div class="flex-1 h-1 bg-[--brand-red]"></div>
+      </div>
+
+      <div class="space-y-16">
+
+        <!-- Alden -->
+        <div class="flex flex-col md:flex-row gap-6 items-center md:items-start">
+          <img
+            src="./assets/images/member-alden.jpg"
+            alt="Alden – Vocals"
+            class="w-40 h-40 md:w-48 md:h-48 rounded-lg object-cover border-2 border-[--brand-red]/50"
+          />
+          <div class="flex-1">
+            <h3 class="font-impact text-3xl md:text-4xl text-white leading-none">
+              Alden
+            </h3>
+            <p class="text-[--brand-red] uppercase tracking-wider text-base md:text-lg mb-3">
+              Vocals
+            </p>
+            <p class="member-bio text-gray-400 leading-relaxed">
+              Born in Middelburg and raised in the Moot, Pretoria, Alden discovered his passion for music at 16 during a solo performance at his school revue. After finishing school in 2021, he worked while studying as a medical laboratory assistant, and later co-founded TOONHOOG in March 2023 to bring his vision of forming a band to life.
+            </p>
+          </div>
+        </div>
+
+        <!-- Armand -->
+        <div class="flex flex-col md:flex-row-reverse gap-6 items-center md:items-start">
+          <img
+            src="./assets/images/member-armand.jpg"
+            alt="Armand – Lead Guitar"
+            class="w-40 h-40 md:w-48 md:h-48 rounded-lg object-cover border-2 border-[--brand-red]/50"
+          />
+          <div class="flex-1">
+            <h3 class="font-impact text-3xl md:text-4xl text-white leading-none md:text-right">
+              Armand
+            </h3>
+            <p class="text-[--brand-red] uppercase tracking-wider text-base md:text-lg mb-3 md:text-right">
+              Lead Guitar
+            </p>
+            <p class="member-bio-right text-gray-400 leading-relaxed">
+              Born and raised in Pretoria, Armand combines a strong academic background in physics and applied mathematics with a love for rock and roll. He taught himself guitar through online resources, performed with acts such as Zadelhoff and Manlynn and the Groove, and brings experience, precision, and a melodic edge to TOONHOOG.
+            </p>
+          </div>
+        </div>
+
+        <!-- Florian -->
+        <div class="flex flex-col md:flex-row gap-6 items-center md:items-start">
+          <img
+            src="./assets/images/member-florian.jpg"
+            alt="Florian – Bass"
+            class="w-40 h-40 md:w-48 md:h-48 rounded-lg object-cover border-2 border-[--brand-red]/50"
+          />
+          <div class="flex-1">
+            <h3 class="font-impact text-3xl md:text-4xl text-white leading-none">
+              Florian
+            </h3>
+            <p class="text-[--brand-red] uppercase tracking-wider text-base md:text-lg mb-3">
+              Bass
+            </p>
+            <p class="member-bio text-gray-400 leading-relaxed">
+              At fourteen, Florian dreamed of playing in a band while inspired by posters of Nirvana, Metallica, and Pearl Jam. Over the years, he has performed internationally across cities including Cairo, Moscow, Lagos, Vienna, and Manila, before continuing that journey in South Africa. His bass playing brings depth, movement, and touring experience to TOONHOOG.
+            </p>
+          </div>
+        </div>
+
+        <!-- Donovan -->
+        <div class="flex flex-col md:flex-row-reverse gap-6 items-center md:items-start">
+          <img
+            src="./assets/images/member-donovan.jpg"
+            alt="Donovan – Drums"
+            class="w-40 h-40 md:w-48 md:h-48 rounded-lg object-cover border-2 border-[--brand-red]/50"
+          />
+          <div class="flex-1">
+            <h3 class="font-impact text-3xl md:text-4xl text-white leading-none md:text-right">
+              Donovan
+            </h3>
+            <p class="text-[--brand-red] uppercase tracking-wider text-base md:text-lg mb-3 md:text-right">
+              Drums
+            </p>
+            <p class="member-bio-right text-gray-400 leading-relaxed">
+              Raised in a music-loving home with strong influences from classic rock and pop of the 60s, 70s, and 80s, Donovan developed a passion for rhythm early on. He thrives on live energy, collaboration, and the connection built with an audience. Since joining TOONHOOG in 2025, the band’s dedication and creativity have strengthened his drive in the music scene.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE -->
+  <section
+    id="live"
+    class="section-bg py-24 px-6"
+    style="background-image: url('./assets/images/live-bg.jpg');"
+  >
+    <div class="section-overlay"></div>
+
+    <div class="section-content max-w-6xl mx-auto">
+
+      <div class="flex items-center gap-4 mb-16">
+        <h2 class="font-impact text-4xl md:text-5xl text-white">
+          LIVE / SHOWS
+        </h2>
+        <div class="flex-1 h-1 bg-[--brand-red]"></div>
+      </div>
+
+      <div class="relative grid md:grid-cols-2 gap-16">
+        <div class="hidden md:block absolute left-1/2 top-0 h-full w-[2px] bg-[--brand-red]/60"></div>
+
+        <!-- LEFT -->
+        <div class="space-y-14">
+          <div class="flex flex-col sm:flex-row items-center gap-6">
+            <div class="w-44 h-64 overflow-hidden rounded-lg border-2 border-[--brand-red]/40 flex-shrink-0">
+              <img src="./assets/images/gig-left-1.jpg" class="w-full h-full object-cover" alt="Gig photo 1" />
+            </div>
+            <div>
+              <h3 class="font-impact text-2xl text-white mb-1">
+                RUMOURS LOUNGE / IGNITION FEST
+              </h3>
+              <p class="text-gray-400 text-sm uppercase tracking-wider">
+                JOHANNESBURG · 2025
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-center gap-6">
+            <div class="w-44 h-64 overflow-hidden rounded-lg border-2 border-[--brand-red]/40 flex-shrink-0">
+              <img src="./assets/images/gig-left-2.jpg" class="w-full h-full object-cover" alt="Gig photo 2" />
+            </div>
+            <div>
+              <h3 class="font-impact text-2xl text-white mb-1">
+                NETWERK 24 / ROCKSPAAIDER HERLEEF
+              </h3>
+              <p class="text-gray-400 text-sm uppercase tracking-wider">
+                ONLINE · 2025
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-center gap-6">
+            <div class="w-44 h-64 overflow-hidden rounded-lg border-2 border-[--brand-red]/40 flex-shrink-0">
+              <img src="./assets/images/gig-right-1.jpg" class="w-full h-full object-cover" alt="Gig photo 3" />
+            </div>
+            <div>
+              <h3 class="font-impact text-2xl text-white mb-1">
+                ROODEPLAAT FARM / BOS BOOGIE FEST
+              </h3>
+              <p class="text-gray-400 text-sm uppercase tracking-wider">
+                PRETORIA · 2025
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="space-y-14">
+
+          <div class="flex flex-col sm:flex-row-reverse items-center gap-6">
+            <div class="w-44 h-64 overflow-hidden rounded-lg border-2 border-[--brand-red]/40 flex-shrink-0">
+              <img src="./assets/images/gig-left-3.jpg" class="w-full h-full object-cover" alt="Gig photo 4" />
+            </div>
+            <div class="sm:text-right">
+              <h3 class="font-impact text-2xl text-white mb-1">
+                SOWAAR BAR / SPOEGWOLF BATTLE OF THE BANDS
+              </h3>
+              <p class="text-gray-400 text-sm uppercase tracking-wider">
+                PRETORIA · 2024
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row-reverse items-center gap-6">
+            <div class="w-44 h-64 overflow-hidden rounded-lg border-2 border-[--brand-red]/40 flex-shrink-0">
+              <img src="./assets/images/gig-right-2.jpg" class="w-full h-full object-cover" alt="Gig photo 5" />
+            </div>
+            <div class="sm:text-right">
+              <h3 class="font-impact text-2xl text-white mb-1">
+                JITTERBUGZ PUB / ALTERNATIEF LIVE BATTLE OF THE BANDS
+              </h3>
+              <p class="text-gray-400 text-sm uppercase tracking-wider">
+                CENTURION · 2024
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row-reverse items-center gap-6">
+            <div class="w-44 h-64 overflow-hidden rounded-lg border-2 border-[--brand-red]/40 flex-shrink-0">
+              <img src="./assets/images/gig-right-3.jpg" class="w-full h-full object-cover" alt="Gig photo 6" />
+            </div>
+            <div class="sm:text-right">
+              <h3 class="font-impact text-2xl text-white mb-1">
+                SOWAAR BAR / KLIPHARD 3RD BIRTHDAY FEST
+              </h3>
+              <p class="text-gray-400 text-sm uppercase tracking-wider">
+                PRETORIA · 2024
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="mt-20 bg-neutral-900/60 border border-neutral-800 rounded-lg p-8 text-center">
+        <h3 class="font-impact text-2xl text-white mb-4">
+          UPCOMING SHOWS
+        </h3>
+        <p class="text-gray-400 mb-2">
+          TO BE ANNOUNCED
+        </p>
+        <p class="text-[--brand-red] uppercase tracking-wider text-sm font-semibold">
+          Available for live bookings
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="py-24 px-6 bg-black">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center gap-4 mb-12">
+        <h2 class="font-impact text-4xl md:text-5xl text-white">GALLERY</h2>
+        <div class="flex-1 h-1 bg-[--brand-red]"></div>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+
+        <img src="./assets/images/gallery/band-landscape-1.jpg"
+          alt="Band portrait"
+          class="gallery-img w-full h-auto rounded-sm object-cover cursor-pointer hover:opacity-80 hover:scale-[1.01] transition"
+          onclick="openLightbox(0)" />
+
+        <img src="./assets/images/gallery/band-landscape-2.jpg"
+          alt="Band portrait"
+          class="gallery-img w-full h-auto rounded-sm object-cover cursor-pointer hover:opacity-80 hover:scale-[1.01] transition"
+          onclick="openLightbox(1)" />
+
+        <img src="./assets/images/gallery/live-landscape-2.jpg"
+          alt="Live performance"
+          class="gallery-img w-full h-auto rounded-sm object-cover cursor-pointer hover:opacity-80 hover:scale-[1.01] transition"
+          onclick="openLightbox(2)" />
+
+        <img src="./assets/images/gallery/live-landscape-3.jpg"
+          alt="Live performance"
+          class="gallery-img w-full h-auto rounded-sm object-cover cursor-pointer hover:opacity-80 hover:scale-[1.01] transition"
+          onclick="openLightbox(3)" />
+
+        <img src="./assets/images/gallery/live-portrait-1.jpg"
+          alt="Live performance"
+          class="gallery-img w-full h-auto rounded-sm object-cover cursor-pointer hover:opacity-80 hover:scale-[1.01] transition"
+          onclick="openLightbox(4)" />
+
+        <img src="./assets/images/gallery/live-portrait-2.jpg"
+          alt="Live performance"
+          class="gallery-img w-full h-auto rounded-sm object-cover cursor-pointer hover:opacity-80 hover:scale-[1.01] transition"
+          onclick="openLightbox(5)" />
+
+        <img src="./assets/images/gallery/live-portrait-3.jpg"
+          alt="Live performance"
+          class="gallery-img w-full h-auto rounded-sm object-cover cursor-pointer hover:opacity-80 hover:scale-[1.01] transition"
+          onclick="openLightbox(6)" />
+
+        <img src="./assets/images/gallery/live-portrait-4.jpg"
+          alt="Live performance"
+          class="gallery-img w-full h-auto rounded-sm object-cover cursor-pointer hover:opacity-80 hover:scale-[1.01] transition"
+          onclick="openLightbox(7)" />
+
+        <img src="./assets/images/gallery/live-portrait-5.jpg"
+          alt="Live performance"
+          class="gallery-img w-full h-auto rounded-sm object-cover cursor-pointer hover:opacity-80 hover:scale-[1.01] transition"
+          onclick="openLightbox(8)" />
+
+        <img src="./assets/images/gallery/live-portrait-8.jpg"
+          alt="Live performance"
+          class="gallery-img w-full h-auto rounded-sm object-cover cursor-pointer hover:opacity-80 hover:scale-[1.01] transition"
+          onclick="openLightbox(9)" />
+
+        <img src="./assets/images/gallery/live-portrait-11.jpg"
+          alt="Live performance"
+          class="gallery-img w-full h-auto rounded-sm object-cover cursor-pointer hover:opacity-80 hover:scale-[1.01] transition"
+          onclick="openLightbox(10)" />
+
+        <img src="./assets/images/gallery/live-portrait-12.jpg"
+          alt="Live performance"
+          class="gallery-img w-full h-auto rounded-sm object-cover cursor-pointer hover:opacity-80 hover:scale-[1.01] transition"
+          onclick="openLightbox(11)" />
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section
+    id="contact"
+    class="section-bg py-24 px-6"
+    style="background-image: url('./assets/images/contact-bg.jpg');"
+  >
+    <div class="section-overlay"></div>
+
+    <div class="section-content max-w-5xl mx-auto">
+
+      <div class="flex items-center gap-4 mb-12">
+        <div class="flex-1 h-1 bg-red-600"></div>
+        <h2 class="font-impact text-4xl md:text-5xl text-white">CONNECT</h2>
+        <div class="flex-1 h-1 bg-red-600"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12">
+
+        <!-- Social Links -->
+        <div>
+          <h3 class="font-impact text-2xl text-white mb-6">FOLLOW TOONHOOG</h3>
+
+          <div class="space-y-4">
+
+            <a href="https://instagram.com/toonhoogband"
+              target="_blank"
+              class="group flex items-center gap-4 p-4 bg-neutral-900/90 backdrop-blur border border-neutral-800 rounded-lg transition hover:border-red-600 hover:bg-red-600 hover:text-black">
+              <i class="fa-brands fa-instagram text-2xl text-[--brand-red] group-hover:text-black transition"></i>
+              <span class="font-semibold">Instagram</span>
+              <span class="ml-auto text-sm opacity-70 group-hover:opacity-100">TOONHOOG</span>
+            </a>
+
+            <a href="https://www.facebook.com/share/1LkUd48MPi/"
+              target="_blank"
+              class="group flex items-center gap-4 p-4 bg-neutral-900/90 backdrop-blur border border-neutral-800 rounded-lg transition hover:border-red-600 hover:bg-red-600 hover:text-black">
+              <i class="fa-brands fa-facebook text-2xl text-[--brand-red] group-hover:text-black transition"></i>
+              <span class="font-semibold">Facebook</span>
+              <span class="ml-auto text-sm opacity-70 group-hover:opacity-100">TOONHOOG</span>
+            </a>
+
+            <a href="https://tiktok.com/@toonhoogband"
+              target="_blank"
+              class="group flex items-center gap-4 p-4 bg-neutral-900/90 backdrop-blur border border-neutral-800 rounded-lg transition hover:border-red-600 hover:bg-red-600 hover:text-black">
+              <i class="fa-brands fa-tiktok text-2xl text-[--brand-red] group-hover:text-black transition"></i>
+              <span class="font-semibold">TikTok</span>
+              <span class="ml-auto text-sm opacity-70 group-hover:opacity-100">TOONHOOG</span>
+            </a>
+
+            <a href="https://open.spotify.com/artist/3JpBKbiTBVSvvFkEhmQQF4?si=HGpzvZeyR6-N-yFlcybayw"
+              target="_blank"
+              class="group flex items-center gap-4 p-4 bg-neutral-900/90 backdrop-blur border border-neutral-800 rounded-lg transition hover:border-red-600 hover:bg-red-600 hover:text-black">
+              <i class="fa-brands fa-spotify text-2xl text-[--brand-red] group-hover:text-black transition"></i>
+              <span class="font-semibold">Spotify</span>
+              <span class="ml-auto text-sm opacity-70 group-hover:opacity-100">TOONHOOG</span>
+            </a>
+
+            <a href="https://music.apple.com/za/artist/toonhoog/1773550626"
+              target="_blank"
+              class="group flex items-center gap-4 p-4 bg-neutral-900/90 backdrop-blur border border-neutral-800 rounded-lg transition hover:border-red-600 hover:bg-red-600 hover:text-black">
+              <i class="fa-brands fa-apple text-2xl text-[--brand-red] group-hover:text-black transition"></i>
+              <span class="font-semibold">Apple Music</span>
+              <span class="ml-auto text-sm opacity-70 group-hover:opacity-100">TOONHOOG</span>
+            </a>
+
+            <a href="https://www.youtube.com/channel/UClC_2C_6MzdDDv6YifDWObQ"
+              target="_blank"
+              class="group flex items-center gap-4 p-4 bg-neutral-900/90 backdrop-blur border border-neutral-800 rounded-lg transition hover:border-red-600 hover:bg-red-600 hover:text-black">
+              <i class="fa-brands fa-youtube text-2xl text-[--brand-red] group-hover:text-black transition"></i>
+              <span class="font-semibold">YouTube</span>
+              <span class="ml-auto text-sm opacity-70 group-hover:opacity-100">TOONHOOG</span>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <h3 class="font-impact text-2xl text-white mb-6">BOOKINGS & ENQUIRIES</h3>
+
+          <div class="bg-neutral-900/90 backdrop-blur border border-red-600/30 rounded-lg p-8 space-y-6">
+            <p class="text-gray-400 text-center md:text-left">
+              Available for live shows, festivals, support slots, and collaborations.
+            </p>
+
+            <div class="flex justify-center">
+              <a
+                href="https://wa.me/27828793937?text=Hi%20TOONHOOG%2C%20I%27d%20like%20to%20book%20you%20for%20a%20gig."
+                target="_blank"
+                class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-[--brand-red] text-black font-semibold uppercase tracking-widest hover:opacity-90 transition"
+              >
+                WhatsApp Bookings
+              </a>
+            </div>
+
+            <div class="space-y-5">
+
+              <div class="flex items-center gap-3">
+                <span class="text-red-600 font-semibold w-16 flex-shrink-0">Email</span>
+
+                <a
+                  href="mailto:toonhoogband@gmail.com"
+                  class="text-white hover:text-red-500 transition underline underline-offset-4 truncate"
+                >
+                  toonhoogband@gmail.com
+                </a>
+
+                <button
+                  class="ml-auto flex-shrink-0 text-[10px] uppercase tracking-widest px-2 py-1 rounded-md border border-neutral-700 hover:border-red-600 hover:bg-red-600 hover:text-black transition whitespace-nowrap"
+                  onclick="copyText('toonhoogband@gmail.com', 'emailCopyStatus')"
+                >
+                  Copy
+                </button>
+              </div>
+              <p id="emailCopyStatus" class="text-xs text-gray-500 -mt-2"></p>
+
+              <div class="flex items-center gap-3">
+                <span class="text-red-600 font-semibold w-16 flex-shrink-0">Phone</span>
+
+                <a
+                  href="tel:+27828793937"
+                  class="text-white hover:text-red-500 transition underline underline-offset-4 truncate"
+                >
+                  +27 82 879 3937
+                </a>
+
+                <button
+                  class="ml-auto flex-shrink-0 text-[10px] uppercase tracking-widest px-2 py-1 rounded-md border border-neutral-700 hover:border-red-600 hover:bg-red-600 hover:text-black transition whitespace-nowrap"
+                  onclick="copyText('+27828793937', 'phoneCopyStatus')"
+                >
+                  Copy
+                </button>
+              </div>
+              <p id="phoneCopyStatus" class="text-xs text-gray-500 -mt-2"></p>
+
+              <div class="flex items-center gap-4">
+                <span class="text-red-600 font-semibold w-20">Location</span>
+                <span class="text-white">Pretoria, South Africa</span>
+              </div>
+
+              <div class="flex items-center gap-4">
+                <span class="text-red-600 font-semibold w-20">Status</span>
+                <span class="text-white">Available for Shows</span>
+              </div>
+
+            </div>
+
+            <div class="pt-6 border-t border-neutral-800">
+              <p class="text-gray-500 text-sm text-center md:text-left">
+                Typical response time: 24–48 hours
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ LIGHTBOX (SCROLL + ARROWS + SWIPE) -->
+  <div
+    id="lightbox"
+    class="fixed inset-0 bg-black/95 hidden items-center justify-center z-[9999] p-6"
+    onclick="closeLightbox()"
+  >
+    <div
+      id="lightboxInner"
+      class="relative max-w-[95vw] max-h-[90vh] flex items-center justify-center"
+      onclick="event.stopPropagation()"
+    >
+      <!-- Prev Button (desktop) -->
+      <button
+        class="lightbox-btn absolute left-3 md:left-6 top-1/2 -translate-y-1/2 text-white hidden md:flex"
+        onclick="prevLightbox()"
+        aria-label="Previous image"
+        type="button"
+      >
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+      <!-- Image -->
+      <img
+        id="lightboxImg"
+        src=""
+        alt="Gallery fullscreen"
+        class="max-w-full max-h-[90vh] rounded-2xl border border-red-600/40 shadow-2xl select-none"
+        draggable="false"
+      />
+
+      <!-- Next Button (desktop) -->
+      <button
+        class="lightbox-btn absolute right-3 md:right-6 top-1/2 -translate-y-1/2 text-white hidden md:flex"
+        onclick="nextLightbox()"
+        aria-label="Next image"
+        type="button"
+      >
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+
+      <!-- Close Button -->
+      <button
+        class="lightbox-btn absolute -top-2 -right-2 md:top-2 md:right-2 text-white"
+        onclick="closeLightbox()"
+        aria-label="Close lightbox"
+        type="button"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Mobile hint -->
+      <div class="absolute bottom-3 left-1/2 -translate-x-1/2 md:hidden text-xs text-gray-400 bg-black/40 px-3 py-1 rounded-full border border-white/10">
+        Swipe ← →
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="py-10 px-6 bg-neutral-950 border-t border-red-600/30">
+    <div class="max-w-4xl mx-auto text-center">
+
+      <span class="font-impact text-3xl text-red-600 tracking-wider">
+        TOONHOOG
+      </span>
+
+      <p class="text-gray-500 mt-4 text-sm">
+        © 2025 TOONHOOG. All rights reserved.
+      </p>
+
+      <p class="text-gray-700 mt-2 text-xs uppercase tracking-widest">
+        Electronic Press Kit
+      </p>
+
+    </div>
+  </footer>
+
+  <!-- Copy Button -->
+  <script>
+    function copyText(text, statusId) {
+      navigator.clipboard.writeText(text).then(() => {
+        const el = document.getElementById(statusId);
+        el.textContent = "Copied ✅";
+
+        setTimeout(() => {
+          el.textContent = "";
+        }, 1500);
+      });
+    }
+  </script>
+
+  <!-- Audio Script -->
+  <script>
+    let activeAudio = null;
+    let activeIcon = null;
+    let activeBtn = null;
+
+    function toggleFrancois() {
+      toggleAudio("francois-audio", "francois-icon", "francois-btn", "francois-progress", "francois-current", "francois-duration");
+    }
+
+    function toggleJyKen() {
+      toggleAudio("jyken-audio", "jyken-icon", "jyken-btn", "jyken-progress", "jyken-current", "jyken-duration");
+    }
+
+    function toggleAudio(audioId, iconId, btnId, progressId, currentId, durationId) {
+      const audio = document.getElementById(audioId);
+      const icon = document.getElementById(iconId);
+      const btn = document.getElementById(btnId);
+
+      if (activeAudio && activeAudio !== audio) {
+        activeAudio.pause();
+        activeAudio.currentTime = 0;
+
+        if (activeIcon) activeIcon.textContent = "▶";
+        if (activeBtn) activeBtn.textContent = "▶";
+      }
+
+      if (audio.paused) {
+        audio.currentTime = 0;
+        audio.play();
+
+        icon.textContent = "❚❚";
+        btn.textContent = "❚❚";
+
+        activeAudio = audio;
+        activeIcon = icon;
+        activeBtn = btn;
+
+        setupAudioUI(audioId, progressId, currentId, durationId);
+      } else {
+        audio.pause();
+        audio.currentTime = 0;
+
+        icon.textContent = "▶";
+        btn.textContent = "▶";
+
+        activeAudio = null;
+        activeIcon = null;
+        activeBtn = null;
+      }
+
+      audio.onended = () => {
+        icon.textContent = "▶";
+        btn.textContent = "▶";
+        activeAudio = null;
+        activeIcon = null;
+        activeBtn = null;
+
+        document.getElementById(progressId).value = 0;
+        document.getElementById(currentId).textContent = "0:00";
+      };
+    }
+
+    function setupAudioUI(audioId, progressId, currentId, durationId) {
+      const audio = document.getElementById(audioId);
+      const progress = document.getElementById(progressId);
+      const current = document.getElementById(currentId);
+      const duration = document.getElementById(durationId);
+
+      audio.onloadedmetadata = () => {
+        duration.textContent = formatTime(audio.duration);
+      };
+
+      audio.ontimeupdate = () => {
+        if (!audio.duration) return;
+
+        const percent = (audio.currentTime / audio.duration) * 100;
+        progress.value = percent;
+
+        current.textContent = formatTime(audio.currentTime);
+      };
+    }
+
+    function seekAudio(audioId, value) {
+      const audio = document.getElementById(audioId);
+      if (!audio.duration) return;
+
+      const seekTime = (value / 100) * audio.duration;
+      audio.currentTime = seekTime;
+    }
+
+    function formatTime(seconds) {
+      const m = Math.floor(seconds / 60);
+      const s = Math.floor(seconds % 60);
+      return `${m}:${s.toString().padStart(2, "0")}`;
+    }
+  </script>
+
+  <!-- Navigation Script -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.classList.toggle("hidden");
+    }
+
+    function closeMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.classList.add("hidden");
+    }
+  </script>
+
+  <!-- ✅ Gallery Lightbox Script (Scroll wheel + arrows + swipe) -->
+  <script>
+    let galleryImages = [];
+    let currentIndex = 0;
+    let wheelCooldown = false;
+
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    function initGallery() {
+      const imgs = document.querySelectorAll(".gallery-img");
+      galleryImages = Array.from(imgs).map(img => img.src);
+    }
+
+    function isLightboxOpen() {
+      const lightbox = document.getElementById("lightbox");
+      return !lightbox.classList.contains("hidden");
+    }
+
+    function openLightbox(index) {
+      if (!galleryImages.length) initGallery();
+
+      currentIndex = index;
+      document.getElementById("lightboxImg").src = galleryImages[currentIndex];
+
+      const lightbox = document.getElementById("lightbox");
+      lightbox.classList.remove("hidden");
+      lightbox.classList.add("flex");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById("lightbox");
+      lightbox.classList.add("hidden");
+      lightbox.classList.remove("flex");
+      document.body.style.overflow = "auto";
+    }
+
+    function nextLightbox() {
+      if (!galleryImages.length) return;
+      currentIndex = (currentIndex + 1) % galleryImages.length;
+      document.getElementById("lightboxImg").src = galleryImages[currentIndex];
+    }
+
+    function prevLightbox() {
+      if (!galleryImages.length) return;
+      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+      document.getElementById("lightboxImg").src = galleryImages[currentIndex];
+    }
+
+    // ✅ Keyboard controls
+    document.addEventListener("keydown", (e) => {
+      if (!isLightboxOpen()) return;
+
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowRight") nextLightbox();
+      if (e.key === "ArrowLeft") prevLightbox();
+    });
+
+    // ✅ Mouse wheel scroll controls
+    document.addEventListener("wheel", (e) => {
+      if (!isLightboxOpen()) return;
+
+      e.preventDefault();
+
+      if (wheelCooldown) return;
+      wheelCooldown = true;
+
+      if (e.deltaY > 0) nextLightbox();
+      else prevLightbox();
+
+      setTimeout(() => {
+        wheelCooldown = false;
+      }, 180);
+    }, { passive: false });
+
+    // ✅ Mobile swipe controls
+    function setupSwipe() {
+      const img = document.getElementById("lightboxImg");
+
+      img.addEventListener("touchstart", (e) => {
+        if (!isLightboxOpen()) return;
+
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+      }, { passive: true });
+
+      img.addEventListener("touchend", (e) => {
+        if (!isLightboxOpen()) return;
+
+        const touchEndX = e.changedTouches[0].screenX;
+        const touchEndY = e.changedTouches[0].screenY;
+
+        const diffX = touchEndX - touchStartX;
+        const diffY = touchEndY - touchStartY;
+
+        if (Math.abs(diffX) < 45) return;
+        if (Math.abs(diffY) > 120) return;
+
+        if (diffX < 0) nextLightbox();
+        else prevLightbox();
+      }, { passive: true });
+    }
+
+    window.addEventListener("load", () => {
+      initGallery();
+      setupSwipe();
+    });
+  </script>
+
+</body>
+</html>
